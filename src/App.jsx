@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SignUp from "./components/SignUp";
 import Header from "./components/Header";
+import Login from "./components/Login";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -8,7 +10,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SignUp setToken={setToken} />
+      <Routes>
+        <Route path="/" element={<SignUp setToken={setToken} />} />
+        <Route path="/log-in" element={<Login />} />
+      </Routes>
+      {/* <SignUp setToken={setToken} /> */}
     </div>
   );
 }
