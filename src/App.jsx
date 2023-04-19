@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -11,8 +12,9 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<SignUp setToken={setToken} />} />
-        <Route path="/log-in" element={<Login />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp setToken={setToken} />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
       {/* <SignUp setToken={setToken} /> */}
     </div>
