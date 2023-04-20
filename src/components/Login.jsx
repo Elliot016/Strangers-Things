@@ -1,5 +1,6 @@
 import React from "react";
 import ProfilePage from "./ProfilePage";
+import { login } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -11,6 +12,18 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
   }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const result = await login(username, password);
+      console.log("result in component", result);
+      localStorage.getItem("token", result.data.token);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
       <h1>Login!</h1>
