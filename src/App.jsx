@@ -7,6 +7,7 @@ import "./App.css";
 import ProfilePage from "./components/ProfilePage";
 import useAuth from "../hooks/useAuth";
 import AuthProvider from "./components/auth/AuthProvider";
+import AllPost from "./components/AllPost";
 
 function App() {
   const { token, user } = useAuth();
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/posts" element={<AllPost />} />
       </Routes>
       {/* <SignUp setToken={setToken} /> */}
     </div>

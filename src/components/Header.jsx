@@ -8,6 +8,8 @@ export default function Header() {
       <h3>Stranger's Things</h3>
       <Link to="/">Home</Link>
       <Link to="/log-in">Login</Link>
+      <Link to="/posts">Posts</Link>
+      <Link to="/profile">Profile</Link>
     </div>
   );
 }
