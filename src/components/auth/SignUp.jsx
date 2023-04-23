@@ -3,6 +3,7 @@ import { useState } from "react";
 import App from "../../App";
 import { registerUser } from "../../api/users";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -40,6 +41,7 @@ export default function SignUp() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button>Submit</button>
+        <Link to="/">Already have an account? Login!</Link>
       </form>
     </div>
   );

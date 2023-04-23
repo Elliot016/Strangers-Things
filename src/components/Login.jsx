@@ -26,7 +26,7 @@ export default function Login() {
       if (result.success === true) {
         // log in succeeded
         setToken(result.data.token);
-        navigate("/profile");
+        navigate("/welcome");
       } else {
         alert("Login Failed");
         // log in failed
@@ -39,7 +39,8 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Login!</h1>
+      <h1>Strangers Things</h1>
+      <h2>Login!</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="username"

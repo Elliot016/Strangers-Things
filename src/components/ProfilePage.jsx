@@ -1,8 +1,21 @@
 import React, { useEffect, useState } from "react";
-import Login from "./Login";
-import { login, registerUser } from "../api/users";
-import { fetchPosts } from "../api/post";
+import { fetchMe } from "../api/users";
+import AfterLoginHeader from "./AfterLoginHeader";
 
 export default function ProfilePage() {
-  return <div>Profile Page!</div>;
+  // const [myPost, setMyPost] = useState([]);
+  // useEffect(() => {
+  //   async function myProfile() {
+  //     const fetchProfile = await fetchMe();
+  //     console.log(fetchProfile);
+  //     setMyPost(fetchProfile);
+  //   }
+  //   myProfile();
+  // }, []);
+  return (
+    <div>
+      <AfterLoginHeader />
+      Profile Page Component
+    </div>
+  );
 }
