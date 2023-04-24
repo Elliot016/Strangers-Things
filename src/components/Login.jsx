@@ -26,7 +26,7 @@ export default function Login() {
       if (result.success === true) {
         // log in succeeded
         setToken(result.data.token);
-        navigate("/welcome");
+        navigate("/profile");
       } else {
         alert("Login Failed");
         // log in failed

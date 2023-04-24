@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchPosts } from "../api/post";
 import AfterLoginHeader from "./AfterLoginHeader";
+import AddPost from "./AddPost";
 
 export default function AllPost() {
   const [posts, setPosts] = useState([]);
@@ -15,6 +16,8 @@ export default function AllPost() {
   return (
     <div>
       <AfterLoginHeader />
+      <h2>All Post</h2>
+      <AddPost />
       {posts.map((post) => {
         return (
           <div key={post._id}>
