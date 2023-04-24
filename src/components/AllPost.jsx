@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchPosts } from "../api/post";
 import AfterLoginHeader from "./NavBar";
 import AddPost from "./AddPost";
+import EditPost from "./EditPost";
 
 export default function AllPost() {
   const [posts, setPosts] = useState([]);
@@ -23,6 +24,7 @@ export default function AllPost() {
             <h3>{post.title}</h3>
             <p>{post.description}</p>
             <p>{post.price}</p>
+            <EditPost />
           </div>
         );
       })}
