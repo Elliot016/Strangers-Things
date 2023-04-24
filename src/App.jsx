@@ -8,18 +8,19 @@ import ProfilePage from "./components/ProfilePage";
 import useAuth from "./hooks/useAuth";
 import AuthProvider from "./components/auth/AuthProvider";
 import AllPost from "./components/AllPost";
-import AfterLoginApp from "./AfterLoginApp";
+import NavBar from "./components/NavBar";
 
 function App() {
   const { token, user } = useAuth();
 
   return (
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/log-in" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/welcome" element={<AfterLoginApp />} />
+
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/posts" element={<AllPost />} />
       </Routes>

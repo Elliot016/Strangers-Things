@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchPosts } from "../api/post";
-import AfterLoginHeader from "./AfterLoginHeader";
+import AfterLoginHeader from "./NavBar";
 import AddPost from "./AddPost";
 
 export default function AllPost() {
@@ -15,7 +15,6 @@ export default function AllPost() {
   }, []);
   return (
     <div>
-      <AfterLoginHeader />
       <h1>All Post</h1>
       <AddPost fetchPosts={fetchPosts} setPosts={setPosts} />
       {posts.map((post) => {
