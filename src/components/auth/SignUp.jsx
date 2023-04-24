@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import App from "../../App";
 import { registerUser } from "../../api/users";
-import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
@@ -18,7 +18,7 @@ export default function SignUp() {
       const result = await registerUser(username, password);
       setToken(result.data.token);
       console.log("result in component", result);
-      localStorage.getItem("token", result.data.token);
+      localStorage.setItem("token", result.data.token);
     } catch (error) {
       console.log(error);
     }

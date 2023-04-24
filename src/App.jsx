@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import ProfilePage from "./components/ProfilePage";
-import useAuth from "../hooks/useAuth";
+import useAuth from "./hooks/useAuth";
 import AuthProvider from "./components/auth/AuthProvider";
 import AllPost from "./components/AllPost";
 import AfterLoginApp from "./AfterLoginApp";

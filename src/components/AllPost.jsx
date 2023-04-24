@@ -16,8 +16,8 @@ export default function AllPost() {
   return (
     <div>
       <AfterLoginHeader />
-      <h2>All Post</h2>
-      <AddPost />
+      <h1>All Post</h1>
+      <AddPost fetchPosts={fetchPosts} setPosts={setPosts} />
       {posts.map((post) => {
         return (
           <div key={post._id}>

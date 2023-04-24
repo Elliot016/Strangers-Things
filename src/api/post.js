@@ -18,19 +18,19 @@ export const fetchPosts = async (token) => {
   }
 };
 
-export const makePost = async (token) => {
+export const makePost = async (token, title, description, price) => {
   try {
     const response = await fetch(`${BASE_URL}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${TOKEN_STRING_HERE}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         post: {
           title,
           description,
-          willDeliver,
+          price,
         },
       }),
     });

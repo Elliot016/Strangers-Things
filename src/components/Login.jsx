@@ -3,7 +3,7 @@ import ProfilePage from "./ProfilePage";
 import { login } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -26,6 +26,7 @@ export default function Login() {
       if (result.success === true) {
         // log in succeeded
         setToken(result.data.token);
+        localStorage.setItem("token", result.data.token);
         navigate("/profile");
       } else {
         alert("Login Failed");
