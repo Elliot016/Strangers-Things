@@ -11,6 +11,7 @@ export default function NavBar() {
       <h3>Strangers Things</h3>
       <Link to="/posts">Posts</Link>
       <Link to="/profile">Profile</Link>
+
       {token && (
         <button
           onClick={() => {

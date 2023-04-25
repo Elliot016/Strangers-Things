@@ -3,7 +3,7 @@ import React from "react";
 export default function EditPost() {
   return (
     <div>
-      <button>Edit</button>
+      <button>Delete Post</button>
     </div>
   );
 }

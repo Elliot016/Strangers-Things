@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { fetchPosts } from "../api/post";
 import AfterLoginHeader from "./NavBar";
 import AddPost from "./AddPost";
-import EditPost from "./EditPost";
+import ViewPost from "./ViewPost";
+import { useNavigate } from "react-router-dom";
 
 export default function AllPost() {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   console.log(posts);
   useEffect(() => {
@@ -24,7 +26,8 @@ export default function AllPost() {
             <h3>{post.title}</h3>
             <p>{post.description}</p>
             <p>{post.price}</p>
-            <EditPost />
+            <p>{post.location}</p>
+            <button onClick={() => navigate(`/${post._id}`)}>View Post</button>
           </div>
         );
       })}

@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import ProfilePage from "./components/ProfilePage";
 import useAuth from "./hooks/useAuth";
-import AuthProvider from "./components/auth/AuthProvider";
 import AllPost from "./components/AllPost";
 import NavBar from "./components/NavBar";
 
@@ -20,9 +19,10 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/log-in" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
-
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/posts" element={<AllPost />} />
+        {/* need to make a route to `/${posts._id}`to View Post on AllPost.jsx */}
+        {/* need to make a route to `/${posts._id}` to Edit Post on ProfilePage.jsx and to delete post  */}
       </Routes>
     </div>
   );
