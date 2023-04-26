@@ -3,8 +3,10 @@ import { fetchMe } from "../api/users";
 import AllPost from "./AllPost";
 import EditPost from "./EditPost";
 
+import { deletePost } from "../api/post";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import DeletePost from "./DeletePost";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -24,6 +26,7 @@ export default function ProfilePage() {
     }
     myPage();
   }, [token]);
+
   return (
     <div>
       <h1>Profile Page</h1>
@@ -36,6 +39,7 @@ export default function ProfilePage() {
             <p>{post.price}</p>
             <p>{post.location}</p>
             <Link to={`/post/${post._id}`}>Edit</Link>
+            <DeletePost id={post._id} setPosts={setPosts} />
           </div>
         );
       })}

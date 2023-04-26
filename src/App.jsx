@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SignUp from "./components/auth/SignUp";
-import Header from "./components/Header";
+
 import Login from "./components/Login";
 import { Routes, Route, useParams } from "react-router-dom";
 import "./App.css";
