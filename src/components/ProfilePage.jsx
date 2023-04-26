@@ -4,13 +4,14 @@ import AllPost from "./AllPost";
 import EditPost from "./EditPost";
 
 import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
   const [myProfile, setMyProfile] = useState({});
   const [posts, setPosts] = useState([]);
   const { token } = useAuth();
+
   useEffect(() => {
     async function myPage() {
       const fetchProfile = await fetchMe(token);
@@ -34,7 +35,7 @@ export default function ProfilePage() {
             <p>{post.description}</p>
             <p>{post.price}</p>
             <p>{post.location}</p>
-            <button onClick={() => navigate(`${posts._id}`)}>Edit</button>
+            <Link to={`/post/${post._id}`}>Edit</Link>
           </div>
         );
       })}

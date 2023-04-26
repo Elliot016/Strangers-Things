@@ -41,3 +41,35 @@ export const makePost = async (token, title, description, price) => {
     console.error(err);
   }
 };
+
+export const updatePost = async (
+  token,
+  title,
+  description,
+  price,
+  location,
+  id
+) => {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: {
+          title,
+          description,
+          price,
+          location,
+        },
+      }),
+    });
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+};

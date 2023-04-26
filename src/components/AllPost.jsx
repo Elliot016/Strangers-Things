@@ -27,7 +27,9 @@ export default function AllPost() {
             <p>{post.description}</p>
             <p>{post.price}</p>
             <p>{post.location}</p>
-            <button onClick={() => navigate(`/${post._id}`)}>View Post</button>
+            <button onClick={() => navigate(`/view/${post._id}`)}>
+              View Post
+            </button>
           </div>
         );
       })}
