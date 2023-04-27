@@ -4,19 +4,21 @@ import { postMessage } from "../api/messages";
 import useAuth from "../hooks/useAuth";
 
 export default function Message() {
-  const { token } = useAuth();
-  const { id } = useParams();
-  const [message, setMessage] = useState("");
-  async function handlesubmit(e) {
-    e.preventDefault();
-    try {
-      const response = await postMessage(id, token, message);
-      setMessage(response);
-      console.log(message, "message from message");
-    } catch (error) {
-      console.log(error);
+    const [content, setContent] = useState("");
+    const { token } = useAuth();
+    const { id } = useParams();
+    const [message, setMessage] = useState("");
+    async function handleSubmit(e) {
+      e.preventDefault();
+      try {
+        const response = await postMessage(id, token, content);
+        console.log(content);
+        setMessage(response);
+        console.log(message, "message from message");
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
 
   return (
     <div>
