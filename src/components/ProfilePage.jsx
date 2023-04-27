@@ -7,6 +7,7 @@ import { deletePost } from "../api/post";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import DeletePost from "./DeletePost";
+import ViewPost from "./ViewPost";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -40,6 +41,9 @@ export default function ProfilePage() {
             <p>{post.location}</p>
             <Link to={`/post/${post._id}`}>Edit</Link>
             <DeletePost id={post._id} setPosts={setPosts} />
+            <Link to={`/view/${post._id}`} setPosts={setPosts}>
+              View
+            </Link>
           </div>
         );
       })}
