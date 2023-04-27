@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchMe } from "../api/users";
 import AllPost from "./AllPost";
 import EditPost from "./EditPost";
+import { postMessage } from "../api/messages";
 
 import { deletePost } from "../api/post";
 import useAuth from "../hooks/useAuth";
@@ -32,6 +33,7 @@ export default function ProfilePage() {
     <div>
       <h1>Profile Page</h1>
       <h2>My Post:</h2>
+
       {posts.map((post) => {
         return (
           <div key={post._id}>
