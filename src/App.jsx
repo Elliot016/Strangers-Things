@@ -26,6 +26,7 @@ function App() {
         <Route path="/posts" element={<AllPost />} />
         <Route path="/post/:id" element={<EditPost />} />
         <Route path="/message" element={<Message />} />
+        <Route path="/view/:postid" element={<ViewPost />} />
 
         {/* need to make a route to `/${posts._id}`to View Post on AllPost.jsx */}
         {/* need to make a route to `/${posts._id}` to Edit Post on ProfilePage.jsx and to delete post  */}
