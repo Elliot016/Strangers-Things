@@ -3,9 +3,10 @@ import { useState } from "react";
 import App from "../../App";
 import { registerUser } from "../../api/users";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +41,7 @@ export default function SignUp() {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button>Submit</button>
+        <button onClick={() => navigate("/profile")}>Submit</button>
         <Link to="/">Already have an account? Login!</Link>
       </form>
     </div>

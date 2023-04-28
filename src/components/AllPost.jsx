@@ -9,6 +9,7 @@ import useAuth from "../hooks/useAuth";
 export default function AllPost() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
+  const [searchParam, setSearchParam] = useState("");
   const { user, token } = useAuth();
   console.log(posts);
   useEffect(() => {
@@ -18,9 +19,26 @@ export default function AllPost() {
     }
     getAllPost();
   }, []);
+
+  const filteredPost = posts.filter((post) => {
+    return post.title.toLowerCase().includes(searchParam);
+  });
+  console.log(filteredPost, "filtered post");
+
   return (
     <div>
       <h1>All Post</h1>
+      <div>
+        <input
+          id="search"
+          type="text"
+          placeholder="search"
+          onChange={(e) => {
+            setSearchParam(e.target.value.toLowerCase());
+            console.log(searchParam);
+          }}
+        />
+      </div>
       <AddPost fetchPosts={fetchPosts} setPosts={setPosts} />
       {posts.map((post) => {
         return (
