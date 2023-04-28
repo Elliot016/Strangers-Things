@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { fetchMe } from "../api/users";
 import ProfilePage from "./ProfilePage";
-import { fetchPosts } from "../api/post";
+import { deletePost, fetchPosts } from "../api/post";
 
 export default function ViewPost({ setPosts }) {
   const { postId } = useParams();
@@ -26,12 +26,27 @@ export default function ViewPost({ setPosts }) {
 
   async function handleDelete() {
     // hit your delete ajax fetch function, and pass it token
+    try {
+      const result = await deletePost(token, postId);
+      const fetchProfile = await fetchMe(token);
+      setPost(fetchProfile.data.posts);
+      //await
+
+      console.log(result);
+    } catch (error) {
+      console.error("error in handleDelete", error);
+    }
   }
 
   return (
     <div>
-      <p>{post._id}</p>
-      <button onClick={handleDelete}>Delete Post</button>
+      <button
+        onClick={async () => {
+          handleDelete();
+        }}
+      >
+        Delete Post
+      </button>
     </div>
   );
 }

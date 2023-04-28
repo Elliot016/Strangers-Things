@@ -3,7 +3,7 @@ import { fetchMe } from "../api/users";
 import AllPost from "./AllPost";
 import EditPost from "./EditPost";
 import { postMessage } from "../api/messages";
-
+import { fetchPosts } from "../api/post";
 import { deletePost } from "../api/post";
 import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -14,7 +14,10 @@ export default function ProfilePage() {
   const navigate = useNavigate();
   const [myProfile, setMyProfile] = useState({});
   const [posts, setPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([]);
   const { token } = useAuth();
+  const { id } = useParams;
+  console.log("Post from profile:", posts);
 
   useEffect(() => {
     async function myPage() {
@@ -41,14 +44,10 @@ export default function ProfilePage() {
             <p>{post.description}</p>
             <p>{post.price}</p>
             <p>{post.location}</p>
-            <Link to={`/post/${post._id}`}>Edit</Link>
-            <DeletePost id={post._id} setPosts={setPosts} />
-            <Link to={`/view/${post._id}`} setPosts={setPosts}>
-              View
-            </Link>
           </div>
         );
       })}
+      <h2>My Messages:</h2>
     </div>
   );
 }

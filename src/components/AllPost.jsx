@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { fetchPosts } from "../api/post";
+import React, { useEffect, useReducer, useState } from "react";
+import { deletePost, fetchPosts } from "../api/post";
 import AfterLoginHeader from "./NavBar";
 import AddPost from "./AddPost";
 import ViewPost from "./ViewPost";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 export default function AllPost() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
+  const { user, token } = useAuth();
   console.log(posts);
   useEffect(() => {
     async function getAllPost() {
@@ -27,9 +29,22 @@ export default function AllPost() {
             <p>{post.description}</p>
             <p>{post.price}</p>
             <p>{post.location}</p>
-            <button onClick={() => navigate(`/view/${post._id}`)}>
-              View Post
-            </button>
+            <button>Message</button>
+            {user._id === post.author._id && (
+              <button
+                onClick={async () => {
+                  await deletePost(token, post._id);
+                  const response = await fetchPosts();
+                  if (response.success) {
+                    setPosts(response.data.posts);
+                  } else {
+                    console.error(response.error);
+                  }
+                }}
+              >
+                Delete
+              </button>
+            )}
           </div>
         );
       })}
