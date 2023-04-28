@@ -29,7 +29,9 @@ export default function AllPost() {
             <p>{post.description}</p>
             <p>{post.price}</p>
             <p>{post.location}</p>
-            <button>Message</button>
+            <button onClick={() => navigate(`/posts/${post._id}/messages`)}>
+              Message
+            </button>
             {user._id === post.author._id && (
               <button
                 onClick={async () => {
