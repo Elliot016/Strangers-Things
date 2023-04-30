@@ -26,9 +26,9 @@ export default function SignUp() {
   }
 
   return (
-    <div>
-      <h1>Sign Up!</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="Login-container">
+      <h1 className="Login-header">Sign Up!</h1>
+      <form className="Login-form" onSubmit={handleSubmit}>
         <input
           type="username"
           name="username"

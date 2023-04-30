@@ -17,7 +17,9 @@ function App() {
   const [messages, setMessages] = useState([]);
   return (
     <div className="App">
-      <NavBar />
+      <div>
+        <NavBar />
+      </div>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/log-in" element={<Login />} />

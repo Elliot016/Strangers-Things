@@ -8,6 +8,7 @@ export default function Message() {
   const [content, setContent] = useState("");
   const { token } = useAuth();
   const { id } = useParams();
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {

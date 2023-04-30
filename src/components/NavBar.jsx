@@ -7,10 +7,20 @@ export default function NavBar() {
   const navigate = useNavigate();
   const { token, setToken } = useAuth();
   return (
-    <div>
-      <h3>Strangers Things</h3>
-      <Link to="/posts ">Posts</Link>
-      <Link to="/profile ">Profile</Link>
+    <div className="Nav-bar">
+      <h3 className="Navbar-header">Strangers Things</h3>
+      <ul>
+        <li>
+          <Link className="Navbar-link" to="/posts ">
+            Posts
+          </Link>
+        </li>
+        <li>
+          <Link className="Navbar-link" to="/profile ">
+            Profile
+          </Link>
+        </li>
+      </ul>
 
       {token && (
         <button

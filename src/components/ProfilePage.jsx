@@ -32,19 +32,19 @@ export default function ProfilePage() {
 
   return (
     <div>
-      <h1>Profile Page</h1>
+      <h1 className="Profilepage-header">Profile Page</h1>
       <h2>My Post:</h2>
 
       {posts.map((post) => {
         return (
-          <div key={post._id}>
-            <h3>{post.title}</h3>
+          <div className="Profilepage-post" key={post._id}>
+            <h4>{post.title}</h4>
             <p>{post.description}</p>
             <p>{post.price}</p>
             <p>{post.location}</p>
-            <p>Messages:</p>
+            <h3>Messages:</h3>
             {post.messages.map((message) => {
-              return <p>hello</p>;
+              return <p>{message.content}</p>;
             })}
           </div>
         );

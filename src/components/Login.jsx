@@ -1,5 +1,4 @@
 import React from "react";
-import ProfilePage from "./ProfilePage";
 import { login } from "../api/users";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -39,10 +38,10 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Strangers Things</h1>
+    <div className="Login-container">
+      <h1 className="Login-header">Strangers Things</h1>
       <h2>Login!</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="Login-form" onSubmit={handleSubmit}>
         <input
           type="username"
           name="username"
