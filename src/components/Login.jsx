@@ -39,7 +39,7 @@ export default function Login() {
 
   return (
     <div className="Login-container">
-      <h1 className="Login-header">Strangers Things</h1>
+      <h1 className="Login-header">STRANGER'S THINGS</h1>
       <h2>Login!</h2>
       <form className="Login-form" onSubmit={handleSubmit}>
         <input

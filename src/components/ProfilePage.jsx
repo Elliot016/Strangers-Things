@@ -33,7 +33,11 @@ export default function ProfilePage() {
 
   return (
     <div className="profile-page">
-      <h1 className="Profilepage-header">Profile Page</h1>
+      <h1>
+        {token &&
+          `Welcome, ${user.username}!
+      `}
+      </h1>
       <h2>My Post:</h2>
 
       {posts.map((post) => {
