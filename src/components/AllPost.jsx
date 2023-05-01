@@ -26,7 +26,7 @@ export default function AllPost() {
   console.log(filteredPost, "filtered post");
 
   return (
-    <div>
+    <div className="all-post-container">
       <h1 className="Allpost-header">All Post</h1>
       <div>
         <input

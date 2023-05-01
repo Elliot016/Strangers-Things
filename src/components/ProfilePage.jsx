@@ -15,6 +15,7 @@ export default function ProfilePage() {
   const [posts, setPosts] = useState([]);
   const { token, user } = useAuth();
   const { id } = useParams;
+  const messages = user.messages || [];
   console.log("Post from profile:", posts);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function ProfilePage() {
   }, [token]);
 
   return (
-    <div>
+    <div className="profile-page">
       <h1 className="Profilepage-header">Profile Page</h1>
       <h2>My Post:</h2>
 
@@ -50,6 +51,16 @@ export default function ProfilePage() {
         );
       })}
       <h2>My Messages:</h2>
+      {messages.map((message) => {
+        return (
+          <div className="messages">
+            <h3>From: {message.fromUser.username}</h3>
+            <p>Message: {message.content}</p>
+            <p>Post: {message.post.title}</p>
+            <p>Author: {message.post.author.username}</p>
+          </div>
+        );
+      })}
       {/* {user.id === posts.author._id && <p>{user.messages}</p>} */}
     </div>
   );

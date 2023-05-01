@@ -7,14 +7,15 @@ export default function Message() {
   const navigate = useNavigate();
   const [content, setContent] = useState("");
   const { token } = useAuth();
-  const { id } = useParams();
+  const { postId } = useParams();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await postMessage(id, token, content);
+      const response = await postMessage(postId, token, message);
       setContent(response);
       console.log(content, "message from content");
+      navigate("/posts");
       //need help displaying the messages in post.messages
     } catch (error) {
       console.log(error);
@@ -34,9 +35,7 @@ export default function Message() {
           id="message"
           placeholder="Title"
         />
-        <button type="submit" onClick={() => navigate("/posts")}>
-          Send Message!
-        </button>
+        <button type="submit">Send Message!</button>
       </form>
     </div>
   );

@@ -1,9 +1,9 @@
 export const COHORT_NAME = "2301-FTB-ET-WEB-AM";
 export const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
-export const postMessage = async (id, token, messageContent) => {
+export async function postMessage(postId, token, message) {
   try {
-    const response = await fetch(`${BASE_URL}/posts/${id}/messages`, {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -11,13 +11,14 @@ export const postMessage = async (id, token, messageContent) => {
       },
       body: JSON.stringify({
         message: {
-          content: messageContent,
+          content: message,
         },
       }),
     });
     const result = await response.json();
+    console.log(result);
     return result;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
-};
+}

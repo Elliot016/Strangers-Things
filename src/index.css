@@ -94,6 +94,13 @@ li {
 }
 
 /* All Post */
+
+.all-post-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .Allpost-header {
   font-family: monospace;
   font-size: 70px;
@@ -129,6 +136,15 @@ li {
   border: 1px solid;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  border: 1px solid;
 }
 
 @media (prefers-color-scheme: light) {
